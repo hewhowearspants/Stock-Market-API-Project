@@ -8,10 +8,10 @@ const StockIcon = ({ symbol, stockData }) => (
       {stockData ? 
         <div className='stock-icon-data'>
           <p>{stockData.quote.companyName}</p>
-          <p>${stockData.quote.latestPrice}</p>
+          <p>${stockData.quote.latestPrice.toFixed(2)}</p>
           <p>
-            <span>{stockData.quote.change} </span>
-            <span>{stockData.quote.changePercent * 100}%</span>
+            <span>{stockData.quote.change.toFixed(2)} </span>
+            <span>{(stockData.quote.changePercent * 100).toFixed(2)}%</span>
           </p>
         </div>
       :
