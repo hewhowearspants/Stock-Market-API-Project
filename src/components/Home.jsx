@@ -6,14 +6,13 @@ class Home extends Component {
 
   renderStocks = () => {
     return this.props.stocks.map((symbol, index) => {
-      return <StockIcon key={index} symbol={symbol} stockData={this.props.stockData[symbol]} />
+      return <StockIcon key={index} symbol={symbol} stockData={this.props.stocksData[symbol]} />
     })
   }
 
   render() {
     return (
       <div className='home'>
-        <p>Welcome Home</p>
         {this.renderStocks()}
       </div>
     )
