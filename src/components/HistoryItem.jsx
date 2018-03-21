@@ -1,10 +1,10 @@
 import React from 'react';
 
 const HistoryItem = ({ data }) => {
-  const { date, close } = data;
+  const { label, close } = data;
   return (
     <div className='history-date'>
-      <span>{date} <b>${close.toFixed(2)}</b></span>
+      <span>{label} <b>${close.toFixed(2)}</b></span>
     </div>
   )
 }
