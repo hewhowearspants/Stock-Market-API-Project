@@ -19,6 +19,7 @@ class App extends Component {
     const { stocks, stocksData } = this.state;
 
     this.getStocksData();
+    setInterval(this.getStocksData, 5000);
     
     // receives real-time stock updates and updates sale price and percent changes
     socket.on('message', message => {
