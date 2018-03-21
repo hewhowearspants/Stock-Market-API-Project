@@ -13,7 +13,9 @@ class Home extends Component {
   render() {
     return (
       <div className='home'>
-        {this.renderStocks()}
+        <div className='stock-icons'>
+          {this.renderStocks()}
+        </div>
       </div>
     )
   }
