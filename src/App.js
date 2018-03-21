@@ -12,8 +12,23 @@ class App extends Component {
     stockData: {}
   }
 
-  render() {
+  componentDidMount() {
+    this.getStocksData();
+  }
+  
+  getStocksData = async () => {
     const { stocks } = this.state;
+
+    const res = await axios.get(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}&types=quote,news,chart`)
+    console.log(res.data);
+
+    this.setState({
+      stockData: res.data
+    })
+  }
+
+  render() {
+    const { stocks, stockData } = this.state;
 
     return (
       <Router>
