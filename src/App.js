@@ -16,23 +16,23 @@ class App extends Component {
 
   componentDidMount() {
     const socket = io('https://ws-api.iextrading.com/1.0/tops').connect();
-    const { stocks, stocksData } = this.state;
+    const { stocks } = this.state;
 
     this.getStocksData();
     setInterval(this.getStocksData, 5000);
     
     // receives real-time stock updates and updates sale price and percent changes
     socket.on('message', message => {
-      let data = JSON.parse(message);
-
-      if (stocksData) {
-        let updatedStocksData = {...this.state.stocksData};
-        updatedStocksData[data.symbol].quote.latestPrice = data.lastSalePrice;
-        updatedStocksData[data.symbol].quote.changePercent = data.marketPercent;
-        this.setState({
-          stocksData: updatedStocksData
-        })
-      }
+      // let data = JSON.parse(message);
+      //
+      // if (stocksData) {
+      //   let updatedStocksData = {...this.state.stocksData};
+      //   updatedStocksData[data.symbol].quote.latestPrice = data.lastSalePrice;
+      //   updatedStocksData[data.symbol].quote.changePercent = data.marketPercent;
+      //   this.setState({
+      //     stocksData: updatedStocksData
+      //   })
+      // }
     })
 
     socket.on('connect', () => {
