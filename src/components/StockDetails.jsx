@@ -44,7 +44,14 @@ class StockDetails extends Component {
         <h1>{symbol} {stockData && <i>({companyName})</i>}</h1>
         {stockData ? 
         <div className='stock-details-data'>
-          <h3>${latestPrice.toFixed(2)} {change.toFixed(2)} {changePercent.toFixed(2)}%</h3>
+          <div className='current'>
+            <h2>${latestPrice.toFixed(2)}</h2>
+            <p style={{color: change === 0 ? '#3C455C' : change > 0 ? 'green' : 'red'}}>
+              <span>{change.toFixed(2)} </span>
+              <span>{changePercent > 0 ? <i className="fas fa-caret-up"></i> : <i className="fas fa-caret-down"></i>}</span>
+              <span>{(Math.abs(changePercent) * 100).toFixed(2)}%</span>
+            </p>
+          </div>
           <div className='history'>
             <h2>7-Day History</h2>
             {this.renderHistory()}
