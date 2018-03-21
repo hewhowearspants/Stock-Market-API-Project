@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 
 import Header from './components/Header';
 import Home from './components/Home';
+import StockDetails from './components/StockDetails';
 
 class App extends Component {
   state = {
@@ -38,6 +39,11 @@ class App extends Component {
             <Route exact path = '/'
               render={() => (
                 <Home stocks={stocks} stockData={stockData}/>
+              )}
+            />
+            <Route exact path='/:symbol'
+              render={(props) => (
+                <StockDetails symbol={props.match.params.symbol} stockData={stockData[props.match.params.symbol]} />
               )}
             />
           </main>
