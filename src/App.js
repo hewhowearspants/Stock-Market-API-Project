@@ -37,7 +37,7 @@ class App extends Component {
           <main>
             <Route exact path = '/'
               render={() => (
-                <Home stocks={stocks} />
+                <Home stocks={stocks} stockData={stockData}/>
               )}
             />
           </main>
