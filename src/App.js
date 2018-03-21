@@ -9,7 +9,7 @@ import Home from './components/Home';
 class App extends Component {
   state = {
     stocks: ['FB', 'AAPL', 'GOOG', 'AMZN', 'MDB'],
-    stockData: []
+    stockData: {}
   }
 
   render() {
