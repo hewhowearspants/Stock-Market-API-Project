@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import HistoryItem from './HistoryItem';
+import NewsArticle from './NewsArticle';
+
 class StockDetails extends Component {
   state = {
     stockData: null
@@ -15,12 +18,8 @@ class StockDetails extends Component {
   renderHistory = () => {
     const { stockData } = this.props;
     if (stockData) {
-      return stockData.chart.slice(-7).reverse().map((date, index) => {
-        return (
-          <div className='history-date' key={index}>
-            <span>{date.date} <b>${date.close.toFixed(2)}</b></span>
-          </div>
-        )
+      return stockData.chart.slice(-7).reverse().map((data, index) => {
+        return <HistoryItem key={index} data={data} />
       })
     }
   }
@@ -29,12 +28,7 @@ class StockDetails extends Component {
     const { stockData } = this.props;
     if (stockData) {
       return stockData.news.map((article, index) => {
-        return (
-          <article className='news-article' key={index}>
-            <a href={article.url}>{article.headline}</a>
-            <p>{article.summary}</p>
-          </article>
-        )
+        return <NewsArticle key={index} article={article} />
       })
     }
   }
