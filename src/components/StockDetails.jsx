@@ -60,11 +60,11 @@ class StockDetails extends Component {
         <div className='stock-details-data'>
           
           <div className='history'>
-            <h2>7-Day History</h2>
+            <h2><i className="far fa-calendar-alt"></i> 7-Day History</h2>
             {this.renderHistory()}
           </div>
           <div className='news'>
-            <h2>{companyName} in the News</h2>
+            <h2><i className="far fa-newspaper"></i> {companyName} in the News</h2>
             {this.renderNews()}
           </div>
         </div>
