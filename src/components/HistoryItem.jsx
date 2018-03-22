@@ -7,8 +7,8 @@ const HistoryItem = ({ data }) => {
       <b className='history-item-label'>{label}</b>
       <b>${close.toFixed(2)}</b>
       <div>
-      <p style={{color: 'green'}}><i className="fas fa-caret-up"></i>{high}</p>
-      <p style={{color: 'red'}}><i className="fas fa-caret-down"></i>{low}</p>
+      <p style={{color: 'green'}}><i className="fas fa-caret-up"></i>{high.toFixed(2)}</p>
+      <p style={{color: 'red'}}><i className="fas fa-caret-down"></i>{low.toFixed(2)}</p>
       </div>
     </div>
   )
