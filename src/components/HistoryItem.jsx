@@ -1,10 +1,15 @@
 import React from 'react';
 
 const HistoryItem = ({ data }) => {
-  const { label, close } = data;
+  const { label, close, high, low } = data;
   return (
-    <div className='history-date'>
-      <span>{label} <b>${close.toFixed(2)}</b></span>
+    <div className='history-item'>
+      <b className='history-item-label'>{label}</b>
+      <b>${close.toFixed(2)}</b>
+      <div>
+      <p style={{color: 'green'}}><i className="fas fa-caret-up"></i>{high}</p>
+      <p style={{color: 'red'}}><i className="fas fa-caret-down"></i>{low}</p>
+      </div>
     </div>
   )
 }
