@@ -63,7 +63,7 @@ class App extends Component {
           <main>
             <Route exact path = '/'
               render={() => (
-                <Home stocks={stocks} stocksData={stocksData}/>
+                <Home stocks={stocks} stocksData={stocksData} updateStocks={this.updateStocks} />
               )}
             />
             <Route exact path='/:symbol'
