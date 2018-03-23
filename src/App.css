@@ -70,17 +70,46 @@ main {
   justify-content: space-around;
 }
 
-.stock-icon {
+.stock-icon,
+.stock-icon-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #9AACB8;
+  box-shadow: 0px 5px 10px #333;
+  border-radius: 5px;
+}
+
+.stock-icon-wrapper,
+.stock-icon-form {
+  position: relative;
   width: 150px;
   height: 150px;
   margin: 5px;
   border-radius: 5px;
-  background-color: #9AACB8;
-  box-shadow: 0px 5px 10px #333;
+}
+
+.stock-icon-wrapper .delete-button {
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+  border-radius: 0px 5px 0px 10px;
+  cursor: pointer;
+}
+
+.stock-icon-wrapper:hover .delete-button {
+  display: inherit;
+  
+}
+
+.stock-icon-wrapper .delete-button:hover {
+  background-color: #3C455C;
+  color: #9AACB8;
 }
 
 .stock-icon-data {
@@ -90,6 +119,28 @@ main {
 .stock-icon-data .current-price {
   font-size: 18px;
   font-weight: 500;
+}
+
+.stock-icon-form input {
+  background-color: #DDE2E3;
+  margin-bottom: 20px;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Rubik', 'sans-serif';
+  width: 80%;
+}
+
+.stock-icon-form button {
+  background-color: #3C455C;
+  color: #9AACB8;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  letter-spacing: 1px;
 }
 
 .stock-details {
@@ -121,10 +172,6 @@ main {
   background-repeat: no-repeat;
   background-position: center center;
   background-color: white;
-}
-
-.stock-header .current {
-  
 }
 
 .history {
