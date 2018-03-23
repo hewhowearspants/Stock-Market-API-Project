@@ -38,6 +38,21 @@ class App extends Component {
     })
   }
 
+  updateStocks = (index, symbol) => {
+    // updates stocks list
+    let updatedStocks = [...this.state.stocks];
+
+    updatedStocks[index] = symbol;
+
+    this.setState({
+      stocks: updatedStocks,
+    })
+
+    localStorage.setItem('stocks', JSON.stringify(updatedStocks));
+    
+    this.getStocksData();
+  }
+
   render() {
     const { stocks, stocksData } = this.state;
 
