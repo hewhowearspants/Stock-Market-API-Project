@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import io from 'socket.io-client';
 import axios from 'axios';
 import './App.css';
 
@@ -20,39 +19,12 @@ class App extends Component {
 
     this.getStocksData();
     setInterval(this.getStocksData, 5000);
-    
-    // receives real-time stock updates and updates sale price and percent changes
-    socket.on('message', message => {
-      // let data = JSON.parse(message);
-      //
-      // if (stocksData) {
-      //   let updatedStocksData = {...this.state.stocksData};
-      //   updatedStocksData[data.symbol].quote.latestPrice = data.lastSalePrice;
-      //   updatedStocksData[data.symbol].quote.changePercent = data.marketPercent;
-      //   this.setState({
-      //     stocksData: updatedStocksData
-      //   })
-      // }
-    })
-
-    socket.on('connect', () => {
-      console.log('connected to IEX websockets');
-      // Subscribe to receive updates for selected stocks
-      socket.emit('subscribe', `${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}`)
-    
-      // Unsubscribe from updates (i.e. aig+)
-      //socket.emit('unsubscribe', 'snap,aig+')
-    })
-    
-    // Disconnect from the channel
-    socket.on('disconnect', () => console.log('Disconnected.'))
   }
   
   getStocksData = async () => {
     const { stocks } = this.state;
 
     const res = await axios.get(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${stocks[0]},${stocks[1]},${stocks[2]},${stocks[3]},${stocks[4]}&types=quote,news,logo,chart`)
-    console.log(res.data);
 
     this.setState({
       stocksData: res.data
