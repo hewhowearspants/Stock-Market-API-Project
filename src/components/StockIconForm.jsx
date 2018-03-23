@@ -19,7 +19,7 @@ class StockIconForm extends Component {
     const { symbol } = this.state;
     try {
       const res = await axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/logo`);
-      res && this.props.updateStocks(index, symbol.toUpperCase())
+      res && this.props.updateStocks(index, symbol)
     } catch(err) {
       this.setState({
         symbol: '',
