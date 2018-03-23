@@ -13,10 +13,17 @@ class App extends Component {
     stocksData: {}
   }
 
-  componentDidMount() {
-    const socket = io('https://ws-api.iextrading.com/1.0/tops').connect();
-    const { stocks } = this.state;
+  componentWillMount() {
+    // checks local storage for custom stocks list, updates state
+    if(localStorage.getItem('stocks')) {
+      console.log('fetching local stocks list...');
+      let stocks = JSON.parse(localStorage.getItem('stocks'));
+      this.setState({ stocks })
+    }
+  }
 
+  componentDidMount() {
+    // gets stock data from API every five seconds
     this.getStocksData();
     setInterval(this.getStocksData, 5000);
   }
