@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import StockDetails from './components/StockDetails';
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {
@@ -75,6 +76,7 @@ class App extends Component {
               )}
             />
           </main>
+          <Footer />
         </div>
       </Router>
     );
