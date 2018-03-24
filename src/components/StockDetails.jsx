@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 import HistoryItem from './HistoryItem';
 import NewsArticle from './NewsArticle';
 
 class StockDetails extends Component {
-  state = {
-    stockData: null
-  }
-
-  async componentDidMount() {
-    const res = await axios.get(`https://api.iextrading.com/1.0/stock/${this.props.symbol}/chart/1d`)
-    console.log(res.data);
-    this.setState({
-      stockData: this.props.stockData
-    })
-  }
 
   renderHistory = () => {
     const { stockData } = this.props;
