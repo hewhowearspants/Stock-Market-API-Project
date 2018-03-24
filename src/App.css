@@ -93,7 +93,7 @@ main {
 }
 
 .stock-icon-wrapper .delete-button {
-  display: none;
+  opacity: 0.5;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -103,8 +103,7 @@ main {
 }
 
 .stock-icon-wrapper:hover .delete-button {
-  display: inherit;
-  
+  opacity: 1;
 }
 
 .stock-icon-wrapper .delete-button:hover {
