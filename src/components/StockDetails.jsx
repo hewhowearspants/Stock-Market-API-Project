@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import HistoryItem from './HistoryItem';
 import NewsArticle from './NewsArticle';
 
+// renders more details about a stock, like news and history
 class StockDetails extends Component {
 
+  // renders last 7 days' closing/high/low prices
   renderHistory = () => {
     const { stockData } = this.props;
     if (stockData) {
@@ -15,6 +17,7 @@ class StockDetails extends Component {
     }
   }
 
+  // renders news articles related to the stock
   renderNews = () => {
     const { stockData } = this.props;
     if (stockData) {

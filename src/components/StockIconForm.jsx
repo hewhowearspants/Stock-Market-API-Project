@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+// if the user removes a stock from their list, this component renders in its place
 class StockIconForm extends Component {
   state = {
     symbol: '',
     placeholder: 'Enter Symbol'
   }
 
+  // input change method for input field
   handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value.toUpperCase()
     })
   }
 
+  // tests that an submitted symbol exists before updating stocks list
   handleSubmit = async (e) => {
     e.preventDefault();
     const { index } = this.props;

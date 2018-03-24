@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// renders stock icon on home page with basic information
 const StockIcon = ({ index, symbol, stockData, updateStocks }) => {
   if (stockData) {
     var { companyName, latestPrice, change, changePercent } = stockData.quote;
   }
   return (
-  // <Link to={`/${symbol}`}>
     <div className='stock-icon-wrapper'>
       <div className='delete-button' onClick={() => updateStocks(index, null)}>
         <i className="fas fa-trash-alt"></i>

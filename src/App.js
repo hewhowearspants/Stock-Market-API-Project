@@ -28,6 +28,7 @@ class App extends Component {
     setInterval(this.getStocksData, 5000);
   }
   
+  // API batch request for quotes, charts, logos, and news for all stocks
   getStocksData = async () => {
     const { stocks } = this.state;
 
@@ -39,17 +40,19 @@ class App extends Component {
   }
 
   updateStocks = (index, symbol) => {
-    // updates stocks list
     let updatedStocks = [...this.state.stocks];
 
+    // updates stocks list in state
     updatedStocks[index] = symbol;
 
     this.setState({
       stocks: updatedStocks,
     })
 
+    // saves stocks list to local storage
     localStorage.setItem('stocks', JSON.stringify(updatedStocks));
-    
+
+    // updates stock data for all stocks
     this.getStocksData();
   }
 

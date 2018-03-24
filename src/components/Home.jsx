@@ -5,6 +5,7 @@ import StockIconForm from './StockIconForm';
 
 class Home extends Component {
 
+  // renders stock icons, or a form to enter a stock symbol if symbol is null
   renderStocks = () => {
     return this.props.stocks.map((symbol, index) => {
       if(symbol !== null) {
