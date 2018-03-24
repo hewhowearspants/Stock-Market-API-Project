@@ -20,10 +20,12 @@ class StockIconForm extends Component {
     e.preventDefault();
     const { index } = this.props;
     const { symbol } = this.state;
+
     try {
       const res = await axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/logo`);
       res && this.props.updateStocks(index, symbol)
-    } catch(err) {
+    } 
+    catch(err) {
       this.setState({
         symbol: '',
         placeholder: 'BAD SYMBOL'
@@ -43,8 +45,8 @@ class StockIconForm extends Component {
     return (
       <div className='stock-icon-form'>
         <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleInputChange} placeholder={placeholder} value={symbol} name='symbol' maxLength='5'/>
-        <button onClick={this.handleSubmit}>OK</button>
+          <input onChange={this.handleInputChange} placeholder={placeholder} value={symbol} name='symbol' maxLength='5'/>
+          <button onClick={this.handleSubmit}>OK</button>
         </form>
       </div>
     )
